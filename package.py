@@ -3,7 +3,7 @@ import json
 from os.path import join, isdir
 from os import mkdir
 from json import loads
-from shutil import copy2
+from shutil import move
 
 
 def main(dir, video, entry, output):
@@ -13,7 +13,7 @@ def main(dir, video, entry, output):
     entryf.close()
     if not isdir(join(output, title)):
         mkdir(join(output, title))
-    copy2(join(dir, video), join(output, title, f"{title} - e{int(ep):02d}.mkv"))
+    move(join(dir, video), join(output, title, f"{title} - e{int(ep):02d}.mkv"))
 
 
 if __name__ == "__main__":
