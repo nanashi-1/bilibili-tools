@@ -16,15 +16,39 @@ bilibili store downloaded videos in their own folders with the video, audio and 
 
 3. When you open the downloads folder you will see random looking folders. Select one of it.
 
-4. Run `git clone https://github.com/nanashi-1/bilibili-tools.git`. This will download the tools into `bilibili-tools`.
+4. Run
 
-5. Run `python bilibili-tools/jsontosrt.py download/${season_id}/*/subtitle.json`. Remember to replace the `${season_id}` with the folder you selected earlier.
+```
+git clone https://github.com/nanashi-1/bilibili-tools.git
+```
 
-   This will convert every `subtitle.json` into `subtitle.srt`.
+This will download the tools into `bilibili-tools`.
 
-6. Run `for i in download/${season_id}/*/64; do ffmpeg -i $i/video.m4s -i $i/audio.m4s -i $i/../subtitle.srt -map 0 -map 1:a:0 -map 2 -codec copy $i.mkv; done;`, This will combine video, audio and subtitles, though the subtitles are softsub. If you want hardsub you can use `-vf` option instead. Replace 64 if you did not download it in 720p. See [How To Burn Subtitles Into Video.](https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo)
+5. Run
 
-7. Now all the videos are ready. You can take them one by one in `${season_id}/*/64.mkv` or you can run `python bilibili-tools/package.py -o . -v 64.mkv -e entry.json download/s_34613/*` to package it automatically.
+```
+python bilibili-tools/jsontosrt.py download/${season_id}/*/subtitle.json
+```
+
+Remember to replace the `${season_id}` with the folder you selected earlier.
+
+This will convert every `subtitle.json` into `subtitle.srt`.
+
+6. Run
+
+```
+for i in download/${season_id}/*/64; do ffmpeg -i $i/video.m4s -i $i/audio.m4s -i $i/../subtitle.srt -map 0 -map 1:a:0 -map 2 -codec copy $i.mkv; done;
+```
+
+This will combine video, audio and subtitles, though the subtitles are softsub. If you want hardsub you can use `-vf` option instead. Replace 64 if you did not download it in 720p. See [How To Burn Subtitles Into Video.](https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo)
+
+7. Now all the videos are ready. You can take them one by one in `${season_id}/*/64.mkv` or you can run
+
+```
+python bilibili-tools/package.py -o . -v 64.mkv -e entry.json download/s_34613/*
+```
+
+to package it automatically.
 
 Note:
 
