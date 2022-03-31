@@ -45,7 +45,7 @@ This will combine video, audio and subtitles, though the subtitles are softsub. 
 7. Now all the videos are ready. You can take them one by one in `${season_id}/*/64.mkv` or you can run
 
 ```
-python bilibili-tools/package.py -o . -v 64.mkv -e entry.json download/$(season_id)/*
+python bilibili-tools/package.py -o . -v 64.mkv -e entry.json download/${season_id}/*
 ```
 
 to package it automatically.
