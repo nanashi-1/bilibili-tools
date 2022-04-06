@@ -13,7 +13,8 @@ def main(dir, video, entry, output):
     entryf.close()
     if not isdir(join(output, title)):
         mkdir(join(output, title))
-    move(join(dir, video), join(output, title, f"{title} - e{int(ep):02d}.mkv"))
+    if "PV" in ep or "SP" in ep: move(join(dir, video), join(output, title, f"{title} - {ep}.mkv"))
+    else: move(join(dir, video), join(output, title, f"{title} - e{int(ep):02d}.mkv"))
 
 
 if __name__ == "__main__":
