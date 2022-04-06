@@ -49,7 +49,3 @@ python bilibili-tools/package.py -o . -v 64.mkv -e entry.json download/${season_
 ```
 
 to package it automatically.
-
-Note:
-
-- Some animes have their episode 1 indexed as PV
