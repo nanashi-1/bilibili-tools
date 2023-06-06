@@ -1,5 +1,7 @@
 # bilibili-tools
 
+> This repository is no longer maintained, please use [bilibili-extractor](https://github.com/nanashi-1/bilibili-extractor) instead.
+
 converts downloaded bilibili videos into usable types. _Note: This is created for linux and it is not guaranteed to work with other OSes. If you made it work with your OS please let me know._
 
 ## How it Works
